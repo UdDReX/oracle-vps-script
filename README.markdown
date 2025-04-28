@@ -16,7 +16,7 @@ Before starting, ensure you have:
 - Docker installed on your system.
 - Python 3.9+ installed for running the setup script.
 
-For detailed instructions on gathering these requirements, see [SETUP_GUIDE.md](SETUP_GUIDE.markdown).
+For detailed instructions on gathering these requirements, see [SETUP_GUIDE.markdown](SETUP_GUIDE.markdown).
 
 ## Directory Structure
 After setup, your project directory should look like this:
@@ -119,4 +119,4 @@ You can edit `config.json` directly if needed, then rerun `python setup_oracle_v
 Feel free to open issues or submit pull requests on GitHub to improve the script!
 
 ## License
-MIT License
+[MIT License](LICENSE)
