@@ -85,6 +85,136 @@ Check the logs for debugging or to monitor progress:
   2025-04-28 15:12:00 - ERROR - Attempt 1: Out of host capacity. Retrying...
   ```
 
+Telegram Bot Commands
+
+Interact with the script using the following Telegram commands. Send these commands to your bot in the configured chat.
+
+
+
+
+
+/start:
+
+
+
+
+
+Description: Initiates the instance creation process.
+
+
+
+Usage: Send /start to the bot.
+
+
+
+Response: The bot will reply with "Started instance creation process" and provide updates (e.g., image used, retry attempts).
+
+
+
+Notes: The script will retry up to the configured max_retries if it encounters "Out of host capacity" errors. If a process is already running, it will notify you.
+
+
+
+/stop:
+
+
+
+
+
+Description: Stops the instance creation process.
+
+
+
+Usage: Send /stop to the bot.
+
+
+
+Response: The bot will reply with "Stopped instance creation process."
+
+
+
+Notes: This stops the script from retrying but does not terminate the Docker container. Restart the container by rerunning python setup_oracle_vps.py.
+
+
+
+/status:
+
+
+
+
+
+Description: Checks the current status of the instance creation process.
+
+
+
+Usage: Send /status to the bot.
+
+
+
+Response: The bot will reply with either "Instance creation is running" or "Instance creation is stopped. Last instance OCID: [OCID or None]."
+
+
+
+Notes: Useful for checking if the script is actively trying to create an instance.
+
+
+
+/getid:
+
+
+
+
+
+Description: Retrieves the chat ID of the current Telegram chat.
+
+
+
+Usage: Send /getid to the bot.
+
+
+
+Response: The bot will reply with "Your chat ID is: [chat_id]."
+
+
+
+Notes: Helpful for verifying the chat ID to use in config.json.
+
+
+
+/config:
+
+
+
+
+
+Description: Updates the configuration settings in config.json.
+
+
+
+Usage: Send /config {json_data} in the admin group specified in telegram_admin_group_id.
+
+
+
+Example: /config {"retry_interval": 30, "max_retries": 500}
+
+
+
+Response: The bot will reply with "Configuration updated successfully" or an error message if the update fails.
+
+
+
+Notes:
+
+
+
+
+
+This command is restricted to the admin group specified in config.json.
+
+
+
+The json_data must be a valid JSON string with key-value pairs to update the configuration.
+
 ## Configuration Options
 The `config.json` file contains the following fields:
 - `telegram_bot_token`: Your Telegram bot token.
